@@ -10,6 +10,9 @@ const config = defineConfig({
   server: {
     open: true,
   },
+  build: {
+    outDir: 'dist/client',
+  },
   plugins: [
     devtools(),
     tailwindcss(),
