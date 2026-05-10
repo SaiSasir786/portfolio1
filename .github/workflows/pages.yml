@@ -27,15 +27,15 @@ jobs:
         run: npm ci
 
       - name: Build site
-        run: npm run build
+        run: npx vite build && node ./scripts/generate-gh-pages-index.js
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./dist/client
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
