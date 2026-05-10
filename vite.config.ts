@@ -8,6 +8,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { cloudflare } from '@cloudflare/vite-plugin'
 
 const config = defineConfig({
+  base: '/portfolio1/',
   resolve: { tsconfigPaths: true },
   server: {
     open: true,
