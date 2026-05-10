@@ -1,0 +1,328 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ================================================================
+   Sai Sasir Kosuri — Gen-AI / ML Engineer Portfolio
+   Aesthetic: Interstellar × Project Hail Mary
+   - Deep void blacks, stellar gold, faint cyan beacon
+   - Editorial typography, hairline grids, slow parallax stars
+   - Inspired by NASA mission sites, Anthropic, Stripe Press, Linear
+   ================================================================ */
+
+@theme inline {
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 10px;
+  --radius-2xl: 14px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-bright: var(--border-bright);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-stellar: var(--stellar);
+  --color-beacon: var(--beacon);
+  --color-deep: var(--deep);
+  --color-void: var(--void);
+  --color-hairline: var(--hairline);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Void palette — deeper than graphite, true space-black */
+  --void: oklch(0.06 0.005 250);
+  --deep: oklch(0.085 0.006 250);
+  --background: oklch(0.11 0.007 250);
+  --foreground: oklch(0.97 0.005 90);
+
+  --surface: oklch(0.145 0.008 250);
+  --surface-hover: oklch(0.18 0.009 250);
+  --card: oklch(0.135 0.007 250);
+  --card-foreground: oklch(0.97 0.005 90);
+  --popover: oklch(0.135 0.007 250);
+  --popover-foreground: oklch(0.97 0.005 90);
+
+  /* Stellar gold — warm star-light, used like a highlighter */
+  --stellar: oklch(0.84 0.13 75);
+  --primary: oklch(0.82 0.13 70);
+  --primary-foreground: oklch(0.08 0.005 250);
+
+  /* Beacon cyan — cold, distant, used very sparingly (status dots, fine accents) */
+  --beacon: oklch(0.78 0.11 215);
+
+  --accent: oklch(0.72 0.15 55);
+  --accent-foreground: oklch(0.08 0.005 250);
+
+  --secondary: oklch(0.18 0.008 250);
+  --secondary-foreground: oklch(0.97 0.005 90);
+
+  --muted: oklch(0.16 0.008 250);
+  --muted-foreground: oklch(0.62 0.01 250);
+
+  --destructive: oklch(0.62 0.2 25);
+  --destructive-foreground: oklch(0.97 0.005 90);
+
+  --border: oklch(1 0 0 / 6%);
+  --border-bright: oklch(1 0 0 / 13%);
+  --hairline: oklch(1 0 0 / 8%);
+  --input: oklch(0.18 0.008 250);
+  --ring: oklch(0.84 0.13 75);
+
+  --shadow-elevated:
+    0 1px 0 0 oklch(1 0 0 / 0.04) inset,
+    0 24px 60px -24px oklch(0 0 0 / 0.7);
+}
+
+
+/* ============================================================
+   LIGHT THEME — "Daylight Approach"
+   Warm paper-white surfaces, deep navy ink, retains stellar gold accent
+   ============================================================ */
+.light {
+  --void: oklch(0.97 0.005 90);
+  --deep: oklch(0.95 0.006 90);
+  --background: oklch(0.985 0.004 90);
+  --foreground: oklch(0.18 0.02 250);
+
+  --surface: oklch(0.955 0.006 90);
+  --surface-hover: oklch(0.93 0.008 90);
+  --card: oklch(0.97 0.005 90);
+  --card-foreground: oklch(0.18 0.02 250);
+  --popover: oklch(0.97 0.005 90);
+  --popover-foreground: oklch(0.18 0.02 250);
+
+  --stellar: oklch(0.62 0.16 55);
+  --primary: oklch(0.6 0.16 55);
+  --primary-foreground: oklch(0.985 0.004 90);
+
+  --beacon: oklch(0.55 0.13 230);
+
+  --accent: oklch(0.62 0.16 55);
+  --accent-foreground: oklch(0.985 0.004 90);
+
+  --secondary: oklch(0.94 0.006 90);
+  --secondary-foreground: oklch(0.18 0.02 250);
+
+  --muted: oklch(0.93 0.006 90);
+  --muted-foreground: oklch(0.42 0.015 250);
+
+  --destructive: oklch(0.58 0.2 25);
+  --destructive-foreground: oklch(0.985 0.004 90);
+
+  --border: oklch(0 0 0 / 9%);
+  --border-bright: oklch(0 0 0 / 16%);
+  --hairline: oklch(0 0 0 / 10%);
+  --input: oklch(0.94 0.006 90);
+  --ring: oklch(0.62 0.16 55);
+
+  --shadow-elevated:
+    0 1px 0 0 oklch(1 0 0 / 0.6) inset,
+    0 24px 60px -24px oklch(0.18 0.02 250 / 0.18);
+}
+
+/* Hide native cursor when fine pointer is available — custom cursor takes over */
+@media (pointer: fine) {
+  html, body, a, button, input, textarea, select, label {
+    cursor: none !important;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    background: var(--background);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+  ::selection {
+    background: var(--stellar);
+    color: var(--background);
+  }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--void); }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(1 0 0 / 0.08);
+    border-radius: 8px;
+    border: 2px solid var(--void);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: oklch(1 0 0 / 0.16); }
+}
+
+@layer utilities {
+  .font-serif { font-family: var(--font-display); }
+  .font-mono { font-family: var(--font-mono); }
+
+  .text-stellar { color: var(--stellar); }
+  .text-beacon { color: var(--beacon); }
+  .bg-stellar { background-color: var(--stellar); }
+  .bg-beacon { background-color: var(--beacon); }
+
+  /* Stellar accent bar — subtle highlighter line */
+  .accent-bar {
+    position: relative;
+  }
+  .accent-bar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 18px;
+    height: 1px;
+    background: var(--stellar);
+    transform: translateY(-50%);
+  }
+
+  /* Cinematic horizon glow — Endurance-style top light */
+  .ambient-top {
+    background:
+      radial-gradient(
+        ellipse 70% 50% at 50% 0%,
+        oklch(0.84 0.13 75 / 0.10),
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 40% 30% at 20% 10%,
+        oklch(0.78 0.11 215 / 0.05),
+        transparent 65%
+      );
+  }
+
+  /* Deep-space radial — used behind hero */
+  .cosmos-bg {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.84 0.13 75 / 0.08), transparent 65%),
+      radial-gradient(ellipse 50% 40% at 85% 20%, oklch(0.78 0.11 215 / 0.06), transparent 70%),
+      radial-gradient(ellipse 60% 50% at 10% 80%, oklch(0.84 0.13 75 / 0.04), transparent 70%),
+      var(--background);
+  }
+
+  /* Hairline grid — extremely subtle, editorial */
+  .grid-hairline {
+    background-image:
+      linear-gradient(oklch(1 0 0 / 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(1 0 0 / 0.025) 1px, transparent 1px);
+    background-size: 96px 96px;
+  }
+
+  /* Faint film noise overlay */
+  .noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Vignette — cinematic edges */
+  .vignette {
+    position: relative;
+  }
+  .vignette::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      oklch(0.06 0.005 250 / 0.6) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Hover lift used on cards */
+  .lift {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.3s ease,
+                background-color 0.3s ease;
+  }
+  .lift:hover { transform: translateY(-2px); }
+
+  /* Underline reveal for inline links */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.4s ease;
+  }
+  .link-underline:hover { background-size: 100% 1px; }
+
+  /* Mono micro-label used in HUD strips */
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+}
+
+/* Animations */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes drift {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-fade-in { animation: fade-in 1.2s ease-out both; }
+.animate-pulse-soft { animation: pulse-soft 2.4s ease-in-out infinite; }
+.animate-blink { animation: blink 1.1s step-end infinite; }
+.animate-drift { animation: drift 6s ease-in-out infinite; }
