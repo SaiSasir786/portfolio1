@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import { Section } from "@/components/Section";
 import { Starfield } from "@/components/Starfield";
-import { BootSequence } from "@/components/BootSequence";
 import { StatCounter } from "@/components/StatCounter";
 
 import projectAutovista from "@/assets/project-autovista.jpg";
