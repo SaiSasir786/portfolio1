@@ -8,7 +8,6 @@ import {
   GraduationCap,
   Award,
   Briefcase,
-  Download,
   BookOpen,
   Signal,
 } from "lucide-react";
@@ -339,15 +338,6 @@ function Home() {
               className="mt-11 flex flex-wrap justify-center items-center gap-3 animate-fade-up"
               style={{ animationDelay: "0.85s" }}
             >
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full bg-stellar text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-stellar/90 transition-colors"
-              >
-                <Download className="w-4 h-4" />
-                Download Resume
-              </a>
               <a
                 href="#work"
                 className="group inline-flex items-center gap-2 rounded-full border border-border-bright bg-surface/40 backdrop-blur-sm px-6 py-3 text-sm font-medium text-foreground hover:bg-surface transition-colors"

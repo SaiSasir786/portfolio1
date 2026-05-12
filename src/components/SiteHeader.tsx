@@ -85,14 +85,6 @@ export function SiteHeader() {
           </span>
           <ThemeToggle />
           <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden xl:inline-flex items-center gap-2 rounded-full border border-border-bright px-4 py-1.5 text-[12px] text-foreground hover:bg-surface transition-colors"
-          >
-            Resume
-          </a>
-          <a
             href="/#contact"
             className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-4 py-1.5 text-[12px] font-medium hover:bg-foreground/90 transition-colors"
           >
