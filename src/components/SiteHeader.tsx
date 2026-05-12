@@ -59,9 +59,7 @@ export function SiteHeader() {
             <span className="font-medium tracking-tight text-sm text-foreground">
               Sai Sasir Kosuri
             </span>
-            <span className="hidden sm:inline text-[11px] text-muted-foreground">
-              · Gen-AI Engineer
-            </span>
+
           </div>
         </Link>
 

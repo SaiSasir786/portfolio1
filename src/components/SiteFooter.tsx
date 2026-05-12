@@ -17,8 +17,7 @@ export function SiteFooter() {
               </h3>
             </div>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Generative AI &amp; Machine Learning Engineer. Building
-              production systems with LLMs, RAG, and autonomous agents.
+              AI &amp; Machine Learning Engineer. Building production systems with trajectory clustering and real-time data pipelines.
             </p>
           </div>
 
@@ -41,11 +40,9 @@ export function SiteFooter() {
             <div className="flex items-center gap-2">
               <SocialLink href="https://github.com/saisasir" icon={Github} label="GitHub" />
               <SocialLink href="https://www.linkedin.com/in/saisasirkosuri/" icon={Linkedin} label="LinkedIn" />
-              <SocialLink href="mailto:saisasir99@gmail.com" icon={Mail} label="Email" />
+              <SocialLink href="mailto:saisasirkosuri64@gmail.com" icon={Mail} label="Email" />
             </div>
-            <p className="mt-6 text-xs text-muted-foreground">
-              India · Open to remote &amp; relocation
-            </p>
+
           </div>
         </div>
 
@@ -53,9 +50,7 @@ export function SiteFooter() {
           <p className="text-[11px] text-muted-foreground">
             © {new Date().getFullYear()} Sai Sasir Kosuri. All rights reserved.
           </p>
-          <p className="text-[11px] text-muted-foreground font-mono">
-            Designed &amp; built with React · TanStack Start
-          </p>
+
         </div>
       </div>
     </footer>

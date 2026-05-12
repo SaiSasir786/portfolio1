@@ -1,12 +1,38 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, ExternalLink, Github, Play } from "lucide-react";
-import projectAutovista from "@/assets/project-autovista.jpg";
 import projectFire from "@/assets/firefighter.jpg";
-import projectRov from "@/assets/rov.jpg";
+import fire1 from "@/assets/fire1 (1).gif";
+import fire2 from "@/assets/fire2 (1).jpg";
+import fire3 from "@/assets/fire3 (1).gif";
+import fire4 from "@/assets/fire4 (1).gif";
+import remotecrl1 from "@/assets/remotecrl (1).jpg";
+import remotecrl2 from "@/assets/remotecrl2 (1).jpg";
+import remotecrl3 from "@/assets/remotecrl3 (1).jpg";
+import remotecrl4 from "@/assets/remotecrl4 (1).jpg";
+import rmcl1 from "@/assets/rmcl1 (1).gif";
+import rmcl2 from "@/assets/rmcl2 (1).gif";
+import rmcl3 from "@/assets/rmcl3 (1).gif";
+import rmcl4 from "@/assets/rmcl4 (1).gif";
+import avbrand from "@/assets/avbrand (1).png";
+import avcar from "@/assets/avcar (1).png";
+import avgif from "@/assets/avgif (1).gif";
+import avhome from "@/assets/avhome (1).png";
+import avll from "@/assets/avll (1).png";
+import avov from "@/assets/avov (1).png";
+import avy from "@/assets/avy (1).png";
+import emo1 from "@/assets/emo1.png";
+import emo2 from "@/assets/emo2.png";
+import emo3 from "@/assets/emo3.png";
+import emo4 from "@/assets/emo4.png";
+import emo5 from "@/assets/emo5.png";
+import aws1 from "@/assets/aws1.png";
+import codesense1 from "@/assets/codesense1.png";
+import codesense2 from "@/assets/codesense2.jpg";
+import codesense3 from "@/assets/codesense3.png";
 
 type Media =
-  | { type: "image"; src: string; alt?: string; caption?: string; aspect?: string }
-  | { type: "gif"; src: string; alt?: string; caption?: string; aspect?: string }
+  | { type: "image"; src: string; alt?: string; caption?: string; aspect?: string; fit?: string }
+  | { type: "gif"; src: string; alt?: string; caption?: string; aspect?: string; fit?: string }
   | { type: "youtube"; id: string; title?: string; caption?: string };
 
 type Section = {
@@ -23,6 +49,7 @@ type Project = {
   year: string;
   summary: string;
   image: string; // hero
+  heroFit?: string; // added to control hero image fit
   stack: string[];
   role: string; // kept in data for reference, not rendered
   duration: string; // kept in data for reference, not rendered
@@ -39,103 +66,213 @@ const PROJECTS: Record<string, Project> = {
     slug: "emotion-ser",
     code: "01",
     title: "Emotion-Aware Automated Response System for Speech Recognition",
-    tag: "Machine Learning · Deep Learning",
+    tag: "Affective Computing",
     year: "2025",
     role: "ML Engineer — model architecture, audio processing, web interface",
     duration: "Jan 2025 – Apr 2025",
     summary:
-      "A hybrid CNN-Transformer model for Speech Emotion Recognition achieving 90% accuracy across multiple datasets with real-time contextual verbal feedback.",
-    image: projectRov,
-    stack: ["TensorFlow", "Keras", "MFCCs", "Mel Spectrograms", "ZCR", "RMSE", "gTTS", "Python"],
+      "A hybrid deep learning architecture integrating CNNs with Transformer encoders for robust Speech Emotion Recognition.",
+    image: emo1,
+    stack: ["PyTorch", "CNN", "Transformer", "MFCC", "gTTS", "Python"],
     overview:
-      "Designed a hybrid CNN-Transformer model for Speech Emotion Recognition (SER) using MFCCs, Mel spectrograms, ZCR, and RMSE features. The system achieves 90% accuracy across RAVDESS, CREMA-D, TESS, and SAVEE datasets with data augmentation, and includes a real-time emotion-aware feedback system.",
+      "This project introduces a hybrid deep learning architecture that integrates Convolutional Neural Networks (CNNs) with Transformer encoders to effectively model both local and global patterns within speech signals. The system is designed to advance robust and empathetic Speech Emotion Recognition (SER) systems suitable for real-world applications.",
     sections: [
       {
-        heading: "Model Architecture",
-        body: "The system uses a hybrid CNN-Transformer architecture that combines convolutional feature extraction with transformer attention mechanisms. Audio features including MFCCs, Mel spectrograms, Zero Crossing Rate (ZCR), and Root Mean Square Energy (RMSE) are extracted and fed into the model for multi-class emotion classification.",
+        heading: "Introduction",
+        body: "Speech Emotion Recognition (SER) is a critical component in the development of emotionally intelligent and responsive human-computer interaction systems. Traditional approaches often fail to capture complex temporal and spectral relationships. Deep learning models, particularly hybrid architectures, offer a powerful alternative by automatically learning discriminative representations from raw or preprocessed audio inputs.",
+        media: [
+          { type: "image", src: emo2, caption: "System Overview" },
+        ]
       },
       {
-        heading: "Dataset & Training",
-        body: "The model was trained and validated across four major speech emotion datasets: RAVDESS, CREMA-D, TESS, and SAVEE. Data augmentation techniques were applied to increase robustness and generalization, achieving a combined accuracy of 90% across all datasets.",
+        heading: "Proposed Methodology",
+        body: "The model processes 2D feature matrices extracted from preprocessed audio signals, such as MFCC, delta coefficients, Mel spectrogram, ZCR, RMSE, and roll-off features. The architecture combines a 2-layer CNN block for local feature extraction with a 2-layer Transformer encoder for modeling long-range dependencies and contextual relationships.",
+        media: [
+          { type: "image", src: emo3, caption: "Model Architecture" },
+        ]
       },
       {
-        heading: "Real-Time Feedback",
-        body: "Integrated a real-time emotion-aware feedback system using Google Text-to-Speech (gTTS) to generate contextual verbal responses based on predicted emotions. This significantly enhances human–computer interaction by providing emotionally intelligent replies.",
+        heading: "Emotion-Aware Response System",
+        body: "Beyond classification, the system incorporates an emotion-aware response module using Google Text-to-Speech (gTTS). This transforms the system from a passive recognizer into an interactive agent capable of generating contextually appropriate audio feedback based on the detected emotional state.",
+        media: [
+          { type: "image", src: emo4, caption: "Response System Output" },
+        ]
       },
       {
-        heading: "Web Interface",
-        body: "Created a responsive web interface with real-time audio recording, live visualization of speech patterns, prediction display, and automated feedback generation for an intuitive user experience.",
+        heading: "Results and Evaluation",
+        body: "The system was evaluated on four widely adopted emotional speech datasets—RAVDESS, CREMA-D, TESS, and SAVEE. The hybrid CNN-Transformer model consistently achieved superior performance across multiple emotion classes.",
+        media: [
+          { type: "image", src: emo5, caption: "Confusion Matrix" },
+        ]
       },
     ],
+    gallery: [
+      { type: "image", src: emo1, caption: "Project Poster", fit: "contain" },
+      { type: "image", src: emo2, caption: "System Pipeline", fit: "contain" },
+      { type: "image", src: emo3, caption: "Architecture Details", fit: "contain" },
+    ],
     highlights: [
-      "Achieved 90% accuracy across RAVDESS, CREMA-D, TESS, and SAVEE datasets.",
-      "Designed hybrid CNN-Transformer architecture with MFCCs and Mel spectrogram features.",
+      "Achieved high accuracy across four benchmark datasets.",
+      "Hybrid CNN-Transformer architecture for local and global feature modeling.",
       "Integrated real-time emotion-aware feedback using Google Text-to-Speech (gTTS).",
-      "Built responsive web interface with live audio recording and prediction display.",
+      "Outperformed CNN-LSTM baseline by approximately 29%.",
+    ],
+  },
+  "codesense-mini": {
+    slug: "codesense-mini",
+    code: "02",
+    title: "CodeSense Mini: AI-Powered Development Assistant",
+    tag: "AI · Developer Tools",
+    year: "2024",
+    role: "Full-stack Developer — AI integration, vector search, UI",
+    duration: "Hackathon Project",
+    summary:
+      "An AI-powered development assistant that analyzes code errors and provides contextual solutions using TiDB Serverless vector search and Gemini AI.",
+    image: codesense1,
+    stack: ["Next.js", "Gemini API", "TiDB Serverless", "TypeScript", "Tailwind CSS"],
+    overview:
+      "CodeSense Mini is an AI-powered development assistant that instantly analyzes code errors and provides intelligent, contextual solutions through a sophisticated multi-step agentic workflow. It combines TiDB's vector search capabilities with AI reasoning to create a truly intelligent debugging assistant.",
+    sections: [
+      {
+        heading: "Inspiration",
+        body: "Every developer has experienced the frustration of encountering a cryptic error message. CodeSense Mini was inspired by the concept of 'agentic' AI - systems that autonomously orchestrate multiple services to solve problems, mimicking how experienced developers actually approach debugging.",
+      },
+      {
+        heading: "What it does",
+        body: "Accepts error messages and problematic code, generates vector embeddings using Gemini AI, performs hybrid search combining TiDB's vector similarity with text pattern matching, and uses AI reasoning to synthesize solutions.",
+        media: [
+          { type: "image", src: codesense2, caption: "Error input interface with quick example buttons and code context" },
+        ]
+      },
+      {
+        heading: "Hybrid Search Strategy",
+        body: "Implemented an intelligent combination of vector similarity and text matching with deduplication and relevance ranking to provide the most accurate solutions.",
+        media: [
+          { type: "image", src: codesense3, caption: "AI solution with 95% confidence showing original vs fixed React code" },
+        ]
+      },
+
+    ],
+    gallery: [
+      { type: "image", src: codesense1, caption: "Project Overview", fit: "contain" },
+      { type: "image", src: codesense2, caption: "Error input interface with quick example buttons and code context", fit: "contain" },
+      { type: "image", src: codesense3, caption: "AI solution with 95% confidence showing original vs fixed React code", fit: "contain" },
+    ],
+    highlights: [
+      "Successfully implemented autonomous decision-making for search strategies.",
+      "Seamlessly combined TiDB's vector search with traditional text matching.",
+      "Built a fully functional application deployed on Vercel with real-time visualization.",
+    ],
+    links: [
+      { label: "Live Site", href: "https://codesense-mini.vercel.app", icon: "external" },
+      { label: "GitHub", href: "https://github.com/saisasir/codesense-mini", icon: "github" },
+      { label: "Video", href: "https://youtu.be/ZznHwks77QQ?si=VG7UQca8-Ymq91-M", icon: "youtube" },
     ],
   },
   "aws-voting": {
     slug: "aws-voting",
-    code: "02",
+    code: "03",
     title: "Deployment of Real-Time Voting Application on AWS",
     tag: "Cloud · DevOps",
     year: "2023",
     role: "Cloud Engineer — infrastructure, orchestration, monitoring",
     duration: "Jun 2023 – Dec 2023",
     summary:
-      "Enterprise-grade application deployed on AWS EKS with Datadog monitoring, auto-scaling, and fault-tolerant MongoDB StatefulSets.",
-    image: projectAutovista,
-    stack: ["AWS EKS", "EC2", "S3", "Datadog", "MongoDB", "Docker", "Kubernetes"],
+      "A highly available, scalable three-tier voting application deployed on Amazon EKS with React and MongoDB.",
+    image: aws1,
+    stack: ["AWS EKS", "React", "MongoDB", "Kubernetes", "EBS CSI", "Datadog"],
     overview:
-      "Designed and deployed an enterprise-grade real-time voting application using AWS EKS for container orchestration and EC2 for frontend hosting with cloud-based storage. The system implements auto-scaling to handle thousands of concurrent users.",
+      "This project details the deployment of a sophisticated three-tier voting system utilizing React for the user interface and a backend API with MongoDB for the persistent data layer, all orchestrated on Amazon EKS.",
     sections: [
       {
-        heading: "Infrastructure & Deployment",
-        body: "The application is deployed using AWS EKS for container orchestration and EC2 for frontend hosting. Cloud-based storage ensures persistent data availability. Auto-scaling policies dynamically adjust resources to handle thousands of concurrent users during peak voting periods.",
+        heading: "1. Executive Project Vision",
+        body: "The project aims to deploy a scalable, high-availability web service by leveraging Amazon EKS. Orchestrating multi-tier applications on managed Kubernetes ensures that the frontend, logic, and data layers remain resilient, independent, and operationally efficient. The system utilizes React for the UI and a backend API with MongoDB for the persistent data layer.",
       },
       {
-        heading: "Monitoring & Reliability",
-        body: "Implemented a comprehensive monitoring stack with Datadog for application health monitoring, load balancing, and service policies. MongoDB StatefulSets ensure fault-tolerant data persistence across cluster restarts and node failures.",
+        heading: "2. Infrastructure Foundation",
+        body: "Amazon EKS provides control plane abstraction with a cluster named 'cluster-1' running K8s version 1.27. The Amazon EBS CSI add-on is utilized to facilitate the lifecycle management of Persistent Volumes, ensuring durable storage for stateful workloads on T2.Medium worker nodes.",
       },
       {
-        heading: "Scalability & Disaster Recovery",
-        body: "Built scalable storage, indexing, and query systems that are fault-tolerant, low cost, and easy to manage. The architecture achieves auto-scaling and disaster recovery in an agile environment through automated health checks and rolling deployments.",
+        heading: "3. Resilience in the Data Layer",
+        body: "The project utilizes MongoDB StatefulSets to manage the database tier with stable network identities. It is deployed as a three-pod replica set: mongo-0 (Primary) handling write operations, and mongo-1 & mongo-2 (Secondaries) providing high availability and read-scaling.",
+      },
+      {
+        heading: "4. Logic & Security",
+        body: "The API serves as the stateless logic tier. Security is enforced through Kubernetes Secrets to manage MongoDB authentication. The API is managed via the Deployment controller with two replicas and exposed via a Load Balancer Service.",
+      },
+      {
+        heading: "5. Frontend Orchestration",
+        body: "The React application handles traffic volatility with multi-replica deployment. A critical step involves mapping the API's Load Balancer DNS to the frontend's environment variables (API_ELB_PUBLIC_FQDN) to route API calls correctly.",
+      },
+      {
+        heading: "6. Technical Troubleshooting: IAM & RBAC",
+        body: "Resolved access conflicts between AWS IAM and Kubernetes' internal RBAC by editing the aws-auth ConfigMap in the kube-system namespace, granting the system:masters privilege to the management role.",
+      },
+      {
+        heading: "7. Integrated System Validation",
+        body: "Success was measured by querying the MongoDB state directly. By exec-ing into the mongo-0 pod and querying the LangDB database, votes cast on the React interface were verified to be accurately reflected in the database.",
       },
     ],
     highlights: [
-      "Deployed enterprise-grade application using AWS EKS for container orchestration.",
-      "Implemented Datadog monitoring for application health and load balancing.",
-      "Built fault-tolerant systems with MongoDB StatefulSets.",
-      "Achieved auto-scaling and disaster recovery in agile environment.",
+      "Designed and deployed enterprise-grade application using AWS EKS for container orchestration and EC2 for frontend hosting with cloud-based storage, implementing auto-scaling to handle thousands of concurrent users.",
+      "Implemented comprehensive monitoring stack with Datadog for application health, load balancing, service policies, and MongoDB StatefulSets ensuring fault-tolerant systems.",
+      "Built scalable storage, indexing, and query systems that are fault-tolerant, low cost, and easy to manage/use, achieving auto-scaling and disaster recovery in agile environment.",
     ],
   },
   maru: {
     slug: "maru",
-    code: "03",
+    code: "04",
     title: "AutoVista — Virtual Car Showroom Website (MERN Stack)",
-    tag: "Web Dev · MERN",
+    tag: "MERN Stack",
     year: "2023",
     role: "Full-stack developer — MERN, UI/UX, deployment",
     duration: "Aug 2023 – Nov 2023",
     summary:
-      "End-to-end e-commerce platform built with MERN stack handling complex transactions, inventory management, and real-time search.",
-    image: projectAutovista,
-    stack: ["React.js", "Node.js", "Express.js", "MongoDB", "RESTful APIs"],
+      "A digital showroom for exploring car models with detailed specs and images, built with MERN stack.",
+    image: avhome,
+    stack: ["MongoDB", "Express", "React", "Node.js", "UX/UI"],
     overview:
-      "AutoVista is an end-to-end e-commerce platform handling complex user transactions, inventory management, and real-time search functionality with advanced filtering using scalable architecture principles.",
+      "Auto Vista is a web application designed to enhance the car buying experience by offering a digital showroom where users can explore various car models. The site provides detailed information, specifications, and images of different vehicles, allowing potential buyers to research and compare cars conveniently online. This platform aims to make the car shopping process more accessible and informative without the need to visit a physical showroom.",
     sections: [
       {
-        heading: "Overview & Role",
-        body: "Built the entire platform end-to-end as a solo project — designing the data model, building RESTful APIs in Express.js, the React.js frontend with state management, and deploying it live.",
+        heading: "Home page that piques curiosity and invites interaction",
+        body: "The home page of Auto Vista features a sleek design with a moving GIF background of a car driving, creating a dynamic and engaging atmosphere. It has a prominent search bar allowing users to search for car models or types, with options to shop for new, used, and electric vehicles. The top navigation menu provides access to different car categories, user profiles, and listings, ensuring a user-friendly experience for browsing and researching vehicles. The overall layout is modern and intuitive, enhancing the online car shopping experience.",
+        media: [
+          { type: "gif", src: avgif, caption: "Dynamic Home Page" },
+        ]
       },
       {
-        heading: "Backend Architecture",
-        body: "Engineered scalable backend services with Node.js and Express.js, implementing secure authentication, payment integration, and RESTful API design patterns in microservices architecture.",
+        heading: "Latest Launches",
+        body: "After researching the best methods for showcasing new car models, I decided to use a modern approach for the 'Latest Launches' section of the Auto Vista webpage. This section features the newest car releases, such as the 2024 Volvo S60 Recharge, 2024 Mitsubishi Eclipse Cross, and 2024 BMW X3 M. I utilized a static site generator with React to render individual car pages, ensuring a streamlined and scalable process for displaying the latest vehicles dynamically and efficiently.",
+        media: [
+          { type: "image", src: avll, caption: "Latest Launches Section" },
+        ]
       },
       {
-        heading: "Frontend & UX",
-        body: "Delivered a responsive user experience with React.js frontend, ensuring cross-device compatibility and optimal performance. The interface includes dynamic inventory browsing, search, and filtering capabilities.",
+        heading: "Brands",
+        body: "To help users easily find their preferred vehicles, the 'Shop your favorite brand' section on the Auto Vista webpage features a selection of popular car brands. Users can browse cars from brands such as Audi, BMW, Lamborghini, Ford, Honda, Hyundai, Jaguar, Kia, Mercedes Benz, Porsche, Toyota, and Volkswagen. This organized layout simplifies the search process, allowing users to quickly navigate to their desired brand and explore available models.",
+        media: [
+          { type: "image", src: avbrand, caption: "Shop by Brand" },
+        ]
       },
+      {
+        heading: "Why Choose Auto Vista?",
+        body: "Transparent Pricing: Know exactly what you'll pay without hidden fees or surprises. Efficiency: Our time-saving tools help you find the perfect car quickly and easily. Flexible Shopping: Shop at your convenience, whether from home or on the go, at your own pace. Easy Sign-Up: Quickly create an account to get started with personalized car recommendations and listings.",
+        media: [
+          { type: "image", src: avy, caption: "Key Benefits" },
+        ]
+      },
+      {
+        heading: "Learning Resources on Auto Vista",
+        body: "Auto Vista offers detailed information on car models, specifications, and features throughout the website. While there isn't a dedicated learning resources section, users can explore the site for insights and knowledge about different vehicles. For further assistance, check the FAQs, help sections, or customer support.",
+        media: [
+          { type: "image", src: avov, caption: "Vehicle Information" },
+        ]
+      },
+    ],
+    gallery: [
+      { type: "image", src: avcar, caption: "Car Listing Page", fit: "contain" },
+      { type: "image", src: avhome, caption: "Home Page View", fit: "contain" },
     ],
     highlights: [
       "Built end-to-end e-commerce platform handling complex user transactions.",
@@ -150,46 +287,79 @@ const PROJECTS: Record<string, Project> = {
   },
   critter: {
     slug: "critter",
-    code: "03",
+    code: "05",
     title: "Autonomous Remote Operated Vehicle",
-    tag: "Robotics · Embedded",
+    tag: "Robotics",
     year: "2024",
-    role: "Hardware + firmware — chassis, electronics, CV pipeline",
+    role: "Hardware + firmware",
     duration: "10 weeks",
     summary:
-      "An ML-assisted ROV with real-time sensor fusion, wireless control, and computer-vision feedback.",
-    image: projectRov,
-    stack: ["Arduino", "Bluetooth Module", "Python", "OpenCV", "RF"],
+      "A DIY Bluetooth-controlled car project using Arduino Uno for wireless operation, supporting manual, gesture, and voice commands.",
+    image: remotecrl1,
+    stack: ["Arduino", "Bluetooth", "L298 Driver", "C++"],
     overview:
-      "A four-wheeled remote-operated vehicle controlled over Bluetooth, with onboard sensors providing telemetry and an ML-assisted obstacle awareness layer. Built around an Arduino UNO with a motor driver, custom chassis, and modular firmware.",
+      "This DIY Bluetooth-controlled car project offers a unique opportunity for hobbyists and enthusiasts to explore the exciting world of Arduino-based robotics. By harnessing the power of the Arduino Uno, a versatile microcontroller, and integrating a Bluetooth module, users can create a custom, wireless-controlled vehicle. This vehicle can be operated through manual controls, gesture commands, and even voice commands.",
     sections: [
       {
-        heading: "Problem",
-        body: "The goal was to build a low-cost, modular ROV platform that could be controlled wirelessly and extended with ML-based perception — useful for inspection, prototyping, and learning.",
+        heading: "Inspiration and Ideation",
+        body: "The DIY Bluetooth-controlled car project was inspired by the desire to create an accessible way to explore robotics and electronics. It combines practical engineering skills with modern technology, making it suitable for both beginners and enthusiasts. Using an Arduino Uno and a Bluetooth module, the project demonstrates simple yet effective wireless communication and control. The goal is to inspire creativity, innovation, and a passion for learning through hands-on experience in building and programming a remote-controlled vehicle.",
+        media: [
+          { type: "gif", src: rmcl1, caption: "Robot Movement Test" },
+        ]
       },
       {
-        heading: "Mechanical Design",
-        body: "I designed and prototyped the chassis from scratch — a four-wheel-drive layout powered by 18650 lithium cells, with the motor driver and microcontroller mounted on a vibration-dampened deck. The chassis is rigid enough for off-road driving while remaining lightweight.",
+        heading: "How it Works",
+        body: "The vehicle operates using an Arduino Uno microcontroller and a Bluetooth module to receive commands from a smartphone. The motor driver shield controls the wheels and motors, while a Li-ion battery powers the system. Users send commands through a mobile app, which the Bluetooth module relays to the Arduino. The Arduino then directs the motors, enabling remote control of the car.",
+        media: [
+          { type: "gif", src: rmcl2, caption: "Command Reception" },
+        ]
       },
       {
-        heading: "Control & Wireless Protocol",
-        body: "Control is handled via a Bluetooth module paired with a mobile companion app. I designed a compact command protocol that maps directional inputs and speed adjustments to PWM signals on the L298 motor driver — supporting differential steering for tight turns.",
+        heading: "Computing Speed and Internal Workings",
+        body: "The vehicle is powered by an Arduino Uno microcontroller, operating at 16 MHz for efficient signal processing. A Bluetooth module enables real-time wireless communication, while the motor driver shield translates commands into precise movements, controlling the gear motors' speed and direction. A Li-ion battery provides consistent power, ensuring smooth and responsive control for accurate maneuvering.",
+        media: [
+          { type: "gif", src: rmcl3, caption: "Internal Processing" },
+        ]
       },
       {
-        heading: "Computer Vision Layer",
-        body: "An OpenCV pipeline (running on a host machine, with a streaming camera onboard) detects obstacles and drivable paths in real-time. This gives the operator a 'second pair of eyes' and lays groundwork for autonomous navigation in future iterations.",
+        heading: "Internal and External Setup",
+        body: "Internally, the vehicle uses an Arduino Uno microcontroller to process signals, with a Bluetooth module for wireless communication and a motor driver shield to control the motors. A Li-ion battery powers the system, ensuring smooth operation. Externally, it features a lightweight chassis with four wheels for mobility and a battery holder with a switch for easy power management. This setup enables precise and responsive control for various maneuvers.",
+        media: [
+          { type: "image", src: remotecrl2, caption: "Chassis and Components" },
+        ]
+      },
+      {
+        heading: "Adjusting and Adapting Plans",
+        body: "The project allows for flexibility in adjusting and adapting plans. The use of a breadboard and modular components makes it easy to modify the circuit and integrate new features. The Arduino microcontroller's programmable nature allows for software updates and changes to improve functionality. This adaptability ensures the vehicle can be refined and enhanced based on testing and new requirements, making it a versatile platform for various applications.",
+        media: [
+          { type: "image", src: remotecrl3, caption: "Modular Setup" },
+        ]
+      },
+      {
+        heading: "The Next Iteration",
+        body: "The next iteration of the project focuses on enhancing performance and expanding capabilities. Improvements may include upgrading to more powerful motors for better speed and torque, integrating advanced sensors for improved navigation and obstacle detection, and incorporating a more robust wireless communication system. Additionally, enhancing the software with more sophisticated algorithms will allow for more complex maneuvers and autonomous functions. These upgrades aim to make the vehicle more efficient, versatile, and capable of handling a wider range of tasks.",
+        media: [
+          { type: "image", src: remotecrl4, caption: "Future Upgrades" },
+        ]
       },
     ],
+    gallery: [
+      { type: "gif", src: rmcl4, caption: "Testing Maneuvers", fit: "contain" },
+      { type: "image", src: remotecrl1, caption: "Remote Operated Vehicle", fit: "contain" },
+    ],
     highlights: [
-      "Designed and prototyped the chassis, wiring, and power-distribution.",
-      "Implemented a Bluetooth control protocol with mobile companion commands.",
-      "Integrated motor-driver control with PWM speed regulation.",
-      "Added a CV pipeline for obstacle awareness using OpenCV.",
+      "Powered by Arduino Uno microcontroller at 16 MHz.",
+      "Real-time wireless communication via Bluetooth module.",
+      "Motor driver shield for precise wheel and motor control.",
+      "Supports manual controls, gesture commands, and voice commands.",
+    ],
+    links: [
+      { label: "Watch Demo", href: "https://www.youtube.com/watch?v=nWS_uZ6fSDc&t=5s", icon: "youtube" },
     ],
   },
   web: {
     slug: "web",
-    code: "04",
+    code: "06",
     title: "Fire Fighting Robot",
     tag: "Robotics · Embedded",
     year: "2023",
@@ -198,32 +368,39 @@ const PROJECTS: Record<string, Project> = {
     summary:
       "An autonomous fire-detection robot with flame sensing, water-pump actuation, and motor control.",
     image: projectFire,
+    heroFit: "contain",
     stack: ["Arduino", "L298 Motor Driver", "Flame Sensor", "Water Pump", "C++"],
     overview:
-      "An Arduino-based autonomous robot that detects flames using IR flame sensors and actuates a pump-fed water nozzle to extinguish them. Designed for rapid prototyping and demonstrating real-world embedded control loops.",
+      "This homemade firefighting robot is designed to detect and extinguish small fires. It features a lightweight chassis with four wheels for mobility, powered by a battery pack. The Arduino microcontroller serves as the brain, processing inputs from various sensors and controlling the robot's actions. A breadboard facilitates easy connections between components, including a relay module and a water pump system. The onboard water reservoir supplies a mini water pump used to spray water onto detected flames.",
     sections: [
       {
-        heading: "Problem",
-        body: "Early fire detection and suppression in confined spaces (server rooms, kitchens, labs) is critical. The aim was to prototype a low-cost autonomous unit that can patrol, detect a flame, navigate to it, and suppress it without human input.",
+        heading: "Implementation and Use",
+        body: "The firefighting robot is built to autonomously detect and extinguish small fires. It is equipped with sensors that identify fire sources, sending data to the Arduino microcontroller. Upon detection, the controller activates the water pump, which draws water from the reservoir and sprays it onto the fire. This project demonstrates a practical approach to using robotics in fire safety, providing a reliable and effective solution for managing small-scale fire emergencies.",
+        media: [
+          { type: "gif", src: fire1, caption: "Robot Operation" },
+        ]
       },
       {
-        heading: "Sensing & Detection",
-        body: "An array of three IR flame sensors mounted at different angles provides directional flame detection. The firmware applies thresholding and angle estimation to compute a heading toward the flame source — giving the robot enough information to drive toward it accurately.",
+        heading: "Prototyping and Development",
+        body: "This project features a firefighting robot designed for efficiency and functionality. The robot's chassis is lightweight, mounted on four wheels for mobility. Central to its design is an Arduino microcontroller, which processes sensor inputs and manages the robot's operations. A breadboard is used for prototyping, allowing easy connections and modifications of electronic components. The design includes a relay module to handle high-power components and a water pump system connected to a reservoir, enabling the robot to extinguish fires.",
+        media: [
+          { type: "gif", src: fire3, caption: "Flame Sensor Testing" },
+        ]
       },
-      {
-        heading: "Drive & Suppression",
-        body: "The robot uses an L298 motor driver controlled via PWM for differential steering on a 4-wheel drive chassis powered by 18650 cells. Once aligned with the flame, a relay-driven 5V water pump activates the suppression nozzle, which is aimed using a small servo for fine adjustment.",
-      },
-      {
-        heading: "Control Loop",
-        body: "The main loop runs at ~50 Hz on an Arduino UNO — sampling the sensor array, updating motor commands, and managing the pump activation state machine. The firmware is written in modular C++ for easy extension with additional sensors or actuators.",
-      },
+    ],
+    gallery: [
+      { type: "gif", src: fire4, caption: "Testing and Extinguishing", fit: "contain" },
+      { type: "image", src: projectFire, caption: "Fire Fighting Robot Model", fit: "contain" },
+      { type: "image", src: fire2, caption: "Chassis and Components", fit: "contain" },
     ],
     highlights: [
       "Custom chassis with 4-wheel drive powered by 18650 cells.",
       "L298 motor driver controlled via PWM for differential steering.",
-      "Flame sensor array with thresholded detection and angle estimation.",
+      "Multi-directional flame sensor array with threshold-based fire localization and directional angle estimation.",
       "Servo-aimed water pump with relay-driven activation.",
+    ],
+    links: [
+      { label: "Watch Demo", href: "https://www.youtube.com/watch?v=vMzMbW26u1Q", icon: "youtube" },
     ],
   },
 };
@@ -296,12 +473,12 @@ function MediaBlock({ media }: { media: Media }) {
 
   return (
     <figure className="rounded-xl border border-border bg-deep overflow-hidden">
-      <div className={`overflow-hidden ${media.aspect ?? "aspect-[16/9]"}`}>
+      <div className={media.aspect ? `relative ${media.aspect} overflow-hidden` : "overflow-hidden"}>
         <img
           src={media.src}
           alt={media.alt ?? ""}
           loading="lazy"
-          className="w-full h-full object-cover opacity-95"
+          className={`w-full ${media.aspect ? "absolute inset-0 h-full object-cover" : "h-auto"} opacity-95`}
         />
       </div>
       {media.caption && (
@@ -382,14 +559,12 @@ function ProjectPage() {
         )}
 
         {/* Hero image */}
-        <div className="mt-14 rounded-xl border border-border bg-deep overflow-hidden">
-          <div className="aspect-[16/9] overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover opacity-95"
-            />
-          </div>
+        <div className="mt-14 max-w-3xl mx-auto rounded-xl border border-border bg-deep overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-auto opacity-95"
+          />
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12 mt-20">

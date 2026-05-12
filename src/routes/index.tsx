@@ -9,15 +9,19 @@ import {
   Award,
   Briefcase,
   Download,
+  BookOpen,
   Signal,
 } from "lucide-react";
 import { Section } from "@/components/Section";
 import { Starfield } from "@/components/Starfield";
 import { StatCounter } from "@/components/StatCounter";
 
-import projectAutovista from "@/assets/project-autovista.jpg";
 import projectFire from "@/assets/firefighter.jpg";
-import projectRov from "@/assets/rov.jpg";
+import remotecrl1 from "@/assets/remotecrl (1).jpg";
+import avhome from "@/assets/avhome (1).png";
+import emo1 from "@/assets/emo1.png";
+import aws1 from "@/assets/aws1.png";
+import codesense1 from "@/assets/codesense1.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -55,45 +59,55 @@ const projects = [
     slug: "emotion-ser",
     code: "01",
     title: "Emotion-Aware Speech Recognition System",
-    desc: "Hybrid CNN-Transformer model for Speech Emotion Recognition achieving 90% accuracy with real-time gTTS feedback.",
-    tag: "Machine Learning",
+    desc: "Hybrid CNN-Transformer model for Speech Emotion Recognition achieving high accuracy with real-time gTTS feedback.",
+    tag: "Affective Computing",
     year: "2025",
-    image: projectRov,
-    stack: ["TensorFlow", "MFCCs", "Transformers", "gTTS"],
+    image: emo1,
+    stack: ["PyTorch", "CNN", "Transformer", "MFCC", "gTTS"],
+  },
+  {
+    slug: "codesense-mini",
+    code: "02",
+    title: "CodeSense Mini: AI-Powered Development Assistant",
+    desc: "An AI-powered development assistant that analyzes code errors and provides contextual solutions using TiDB Serverless vector search and Gemini AI.",
+    tag: "AI · Developer Tools",
+    year: "2024",
+    image: codesense1,
+    stack: ["Next.js", "Gemini API", "TiDB Serverless", "TypeScript"],
   },
   {
     slug: "aws-voting",
-    code: "02",
-    title: "Real-Time Voting App on AWS",
-    desc: "Enterprise-grade application deployed on AWS EKS with Datadog monitoring, auto-scaling, and MongoDB StatefulSets.",
+    code: "03",
+    title: "Deployment of Real-Time Voting Application on AWS",
+    desc: "A highly available, scalable three-tier voting application deployed on Amazon EKS with React and MongoDB.",
     tag: "Cloud & DevOps",
     year: "2023",
-    image: projectAutovista,
-    stack: ["AWS EKS", "EC2", "Datadog", "MongoDB"],
+    image: aws1,
+    stack: ["AWS EKS", "React", "MongoDB", "Datadog"],
   },
   {
     slug: "maru",
-    code: "03",
+    code: "04",
     title: "AutoVista — Virtual Car Showroom",
     desc: "End-to-end MERN stack e-commerce platform with secure authentication, inventory management, and RESTful microservices.",
     tag: "Web Engineering",
     year: "2023",
-    image: projectAutovista,
+    image: avhome,
     stack: ["React.js", "Node.js", "Express.js", "MongoDB"],
   },
   {
     slug: "critter",
-    code: "04",
+    code: "05",
     title: "Autonomous Remote-Operated Vehicle",
     desc: "ML-assisted ROV with real-time sensor fusion, wireless control, and computer vision-based obstacle feedback.",
     tag: "Robotics",
     year: "2024",
-    image: projectRov,
+    image: remotecrl1,
     stack: ["Arduino", "OpenCV", "Python", "RF"],
   },
   {
     slug: "web",
-    code: "05",
+    code: "06",
     title: "Autonomous Fire-Fighting Robot",
     desc: "Intelligent robotic system for autonomous navigation and fire suppression using sensor fusion and embedded control.",
     tag: "Robotics",
@@ -126,7 +140,7 @@ const corestack = [
   },
   {
     title: "Development Tools",
-    items: ["Git", "GitHub", "NetworkX", "Datadog", "librosa", "MFCCs", "Mel Spectrograms", "gTTS", "GDPR Compliance"],
+    items: ["Git", "GitHub", "NetworkX", "Datadog", "librosa", "MFCCs", "Mel Spectrograms", "gTTS"],
   },
 ];
 
@@ -264,14 +278,8 @@ function Home() {
           <div className="flex items-center justify-between mb-14 lg:mb-20 animate-fade-up">
             <div className="flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground">
               <span className="w-1.5 h-1.5 rounded-full bg-stellar animate-pulse-soft" />
-              <span className="hidden sm:inline">Bengaluru, IND · 12.97°N · 77.59°E</span>
-              <span className="sm:hidden">IND · 12.97°N</span>
             </div>
-            <div className="hidden md:flex items-center gap-6 text-[10px] font-mono uppercase tracking-[0.28em] text-muted-foreground">
-              <span>Portfolio · v3.0</span>
-              <span className="h-3 w-px bg-border" />
-              <span>2026 / Q1</span>
-            </div>
+
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-beacon/30 bg-beacon/5 text-[10px] font-mono uppercase tracking-[0.22em] text-beacon">
               <Signal className="w-3 h-3" />
               <span className="hidden sm:inline">Signal · Available</span>
@@ -308,9 +316,7 @@ function Home() {
               className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-muted-foreground leading-relaxed animate-fade-up"
               style={{ animationDelay: "0.65s" }}
             >
-              B.Tech Computer Science · VIT (GPA 8.22/10) — I build
-              distributed computing systems, scalable full-stack applications,
-              and production ML pipelines.
+              B.Tech Computer Science · VIT (GPA 8.22/10) — I build trajectory clustering systems, real-time data pipelines, and production ML infrastructure.
             </p>
 
             {/* Vallabhaneni-style chips */}
@@ -356,7 +362,7 @@ function Home() {
                   icon={Linkedin}
                   label="LinkedIn"
                 />
-                <SocialIcon href="mailto:saisasir99@gmail.com" icon={Mail} label="Email" />
+                <SocialIcon href="mailto:saisasirkosuri64@gmail.com" icon={Mail} label="Email" />
               </div>
             </div>
           </div>
@@ -526,26 +532,13 @@ function Home() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-8 space-y-6">
             <p className="text-lg md:text-xl text-foreground leading-relaxed font-serif italic">
-              "Computer Science graduate with expertise in distributed computing
-              environments, scalable systems, and full-stack development — with a
-              proven ability to solve complex problems through cross-disciplinary collaboration."
+              "Computer Science graduate with expertise in trajectory clustering, real-time data pipelines, and production ML infrastructure — with a proven ability to trace silent failures through preprocessing and distributed layers."
             </p>
             <p className="text-base text-muted-foreground leading-relaxed">
-              I'm an AI and ML Engineer at{" "}
-              <span className="text-foreground">Gannetz Technologies</span>,
-              where I engineered a 3D database observability console using React,
-              Three.js, and InstancedMesh to render 1,000+ nodes. I built an
-              autonomous schema engine fusing{" "}
-              <span className="text-foreground">Google Gemini LLM</span> with
-              NetworkX Louvain algorithms and PCA embeddings, achieving 95%
-              accuracy in organizing logical domains.
+              I'm an AI and ML Engineer at Gannetz Technologies, architecting an observability engine using FastAPI, WebSocket streaming, and Three.js for real-time 3D graph rendering. I built an autonomous schema engine fusing Google Gemini LLM with NetworkX Louvain detection, Isolation Forest anomaly detection, and PageRank for multi-database topology analysis.
             </p>
             <p className="text-base text-muted-foreground leading-relaxed">
-              My foundation in cloud infrastructure, microservices architecture,
-              and machine learning gives me a unique perspective on building
-              fault-tolerant systems. I've also worked as a Data Science Intern
-              at SkillDzire, developing ML models for cardiovascular disease
-              prediction achieving 87% accuracy.
+              My foundation in anomaly detection, graph algorithms, and microservices gives me a unique perspective on building fault-tolerant systems. I've also worked as a Data Science Intern at SkillDzire, developing Random Forest and XGBoost models for cardiovascular disease prediction achieving 87% accuracy.
             </p>
           </div>
 
@@ -591,6 +584,20 @@ function Home() {
                 SkillDzire · Nov 2024 – Dec 2024
               </div>
             </DossierCard>
+            <DossierCard icon={BookOpen} label="Research">
+              <div className="text-sm text-foreground font-medium">
+                Vellore Institute of Technology
+              </div>
+              <div className="text-[12px] text-muted-foreground mt-1">
+                Undergraduate Researcher · Feb 2024 - Sep 2024
+              </div>
+              <div className="text-[12px] text-stellar mt-1">
+                LCSS trajectory clustering via iBeacon BLE
+              </div>
+              <div className="text-[11px] text-muted-foreground mt-1">
+                Accepted to IEEE CINS 2024 (Oral) and ICAECT 2024
+              </div>
+            </DossierCard>
           </div>
         </div>
       </Section>
@@ -613,13 +620,12 @@ function Home() {
                 <em className="italic text-stellar">together.</em>
               </h2>
               <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
-                LLM-powered products, ML infrastructure, or experimental
-                agents — I'd love to hear about what you're working on.
+                Trajectory clustering, real-time data pipelines, or agent-based models — I'd love to hear about what you're working on.
               </p>
 
               <div className="mt-12 flex flex-wrap items-center gap-3">
-                <ContactLink href="mailto:saisasir99@gmail.com" icon={Mail} primary>
-                  saisasir99@gmail.com
+                <ContactLink href="mailto:saisasirkosuri64@gmail.com" icon={Mail} primary>
+                  saisasirkosuri64@gmail.com
                 </ContactLink>
                 <ContactLink href="https://github.com/saisasir" icon={Github} external>
                   github.com/saisasir
